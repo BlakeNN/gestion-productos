@@ -1,0 +1,74 @@
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form {
+    width: 75%;
+    height: auto;
+    margin: 2rem;
+    padding: 2rem 1rem;
+    background-color: var(--azul-second);
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    text-transform: uppercase;
+}
+.tit {
+    text-align: center;
+    align-self: center;
+    margin: 0 0 1rem 0;
+}
+label {
+    margin: .5rem 0;
+    font-size: 12px;
+    font-weight: bold;
+}
+input {
+    width: 100%;
+    height: 1.5rem;
+    padding: .5rem;
+    border-radius: 5px;
+    border: none;
+    font-size: 12px;
+    background-color: var(--gris-claro);
+    color: var(--gris-oscuro);
+    font-weight: bold;
+}
+.adminCheck {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: .5rem 0 0 0;
+}
+.adminCheck > * {
+    width: 33%;
+}
+.sbmt {
+    width: 45%;
+    height: 2rem;
+    margin: 2rem 0 0 0;
+    padding: 5px;
+    align-self: center;
+}
+.sbmt:hover {
+    border-color: #8a9295; 
+    transform: scale(1.05); 
+    cursor: pointer;
+}
+.sbmt:active {
+    transform: scale(0.95);  
+    border-color: #4a4e50;    
+}
+/* FIN MAIN */
+@media (max-height: 360px) {
+    form {
+        height: auto;
+        padding: .5rem 1rem;
+    }
+}
+@media (min-width: 500px) {
+    form {
+        max-width: 380px;
+    }
+}

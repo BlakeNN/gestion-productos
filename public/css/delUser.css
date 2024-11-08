@@ -1,0 +1,64 @@
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.txt {
+    text-align: center;
+    align-self: center;
+    margin: .5rem 0;
+}
+
+.tabla {
+    width: 80%;
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+
+.cats {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+    background-color: var(--gris-claro);
+}
+
+.cats th, .cats td {
+    padding: 0.75rem;
+    border: 1px solid #000; 
+    text-align: center;
+    color: var(--gris-oscuro); 
+}
+
+.cats th {
+    background-color: var(--gris-oscuro);
+    color: var(--gris-claro);
+    text-transform: uppercase;
+}
+
+.cats button {
+    color: var(--gris-claro);
+    font-weight: bolder;
+    background-color: var(--azul-second);
+    border: 1px solid #000; 
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cats button:hover {
+    background-color: #0087e0;
+}
+
+@media (max-width: 768px) {
+    .cats {
+        min-width: 100%;
+        font-size: 0.9rem;
+    }
+    .col button {
+        width: 100%;
+        max-width: 8rem;
+    }
+}

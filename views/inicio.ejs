@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <link rel="stylesheet" href="/css/inicio.css" type="text/css">
+    <link rel="stylesheet" href="/css/styles.css" type="text/css">
+</head>
+<body>
+    <header>
+        <section class="logo">
+            <h2>LOGO</h2>
+        </section>
+        <section class="name">
+            <h1>NOMBRE AQUI</h1>
+        </section>
+    </header>
+    <main>
+        <form action="/validar" method="post">
+            <h3 class="tit">Inicio de Sesión</h3>
+            <label for="user">Usuario:</label> <br>
+            <input type="text" name="user" id="user"> <br>
+            <label for="pass">Contraseña:</label> <br>
+            <div class="passArea">
+                <input type="password" name="pass" id="pass" class="pass">
+                <button class="passBtn" id="passBtn"><img src="/imgs/hidePass.png" title="Mostrar/Ocultar" id="togglePass"></button>
+            </div>
+            <input type="submit" value="Iniciar" class="sbmt">
+        </form>
+    </main>
+    <footer>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+    </footer>
+</body>
+<script>
+    let togglePass = document.getElementById("togglePass");
+    let passBtn = document.getElementById("passBtn");
+    passBtn.addEventListener('click', function passShown(event) {
+        event.preventDefault();
+        let passInput = document.getElementById("pass");
+        const tipo = passInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passInput.setAttribute('type', tipo);
+        togglePass.style.opacity = 0;
+        setTimeout(() => {
+            const cambiarImg = tipo === 'password' ? '/imgs/hidePass.png' : '/imgs/seePass.png';
+            togglePass.setAttribute('src', cambiarImg);
+            togglePass.style.opacity = 1;
+        }, 300);
+    });
+</script>
+</html>

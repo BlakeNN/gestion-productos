@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="/css/delUser.css" type="text/css">
+    <link rel="stylesheet" href="/css/styles.css" type="text/css">
+</head>
+<body>
+    <header>
+        <section class="logo">
+            <h2>LOGO</h2>
+        </section>
+        <section class="name">
+            <h1>NOMBRE AQUI</h1>
+        </section>
+    </header>
+    <main>
+        <section class="tabla">
+            <h3 class="txt" style="text-transform: uppercase;">Categorias Creadas</h3>
+            <table class="cats">
+                <thead>
+                    <tr>
+                        <th>Categoria</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if(cats.length > 0){ %>
+                        <% cats.forEach(cat => { %>
+                            <tr>
+                                <td><%= cat.cat%></td>
+                                <td><button value="<%= cat.idCat%>" class="verProds">Ver</button></td>
+                            </tr>
+                        <% }); %>
+                    <% } else { %>
+                        <p>Sin Registros</p>
+                    <% } %>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+    </footer>
+    <script>
+        let verProds = document.getElementsByClassName("verProds");
+        for (let i = 0; i < verProds.length; i++) {
+            verProds[i].addEventListener('click', () => {
+                window.location.href = `/verProds?cat=${verProds[i].value}`;
+            });            
+        }
+        window.addEventListener('pageshow', (event) => {
+        if (event.persisted) {
+            window.location.reload(); // Recarga la página al volver a ella
+            }
+        }); 
+    </script>
+</body>
+</html>

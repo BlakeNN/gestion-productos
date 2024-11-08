@@ -1,0 +1,31 @@
+{
+  "name": "gestion-productos",
+  "version": "1.0.0",
+  "description": "Sistema de gestión de productos para comercios",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "prod": "NODE_ENV=production node index.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "author": "Lucas Iván Reinert",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BlakeNN/gestion-productos"
+  }
+}

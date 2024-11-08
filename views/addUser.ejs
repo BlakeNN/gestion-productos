@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadir Empleado</title>
+    <link rel="stylesheet" href="/css/styles.css" type="text/css">
+    <link rel="stylesheet" href="/css/addUser.css" type="text/css">
+</head>
+<body>
+    <header>
+        <section class="logo">
+            <h2>LOGO</h2>
+        </section>
+        <section class="name">
+            <h1>NOMBRE AQUI</h1>
+        </section>
+    </header>
+    <main>
+        <form action="/crearUser" method="post" id="form">
+            <h3 class="tit">Ingrese los Datos del Nuevo Empleado</h3>
+            <label for="user">Usuario:</label> <br>
+            <input type="text" name="user" id="user"> <br>
+            <label for="pass">Contraseña:</label> <br>
+            <input type="text" name="pass" id="pass" class="pass">  
+            <div class="adminCheck">
+                <label for="isAdmn">Rol:</label> <br>
+                <label for="isAdmn">Admin</label>
+                <input type="radio" name="isAdmin" id="isAdmn" value="admin">
+                <label for="isAdmn">Empleado</label>
+                <input type="radio" name="isAdmin" id="isUser" value="user">
+            </div>          
+            <input type="submit" value="Crear" class="sbmt">
+        </form>
+    </main>
+    <footer>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+    </footer>
+    <script>
+        document.getElementById("form").addEventListener('submit', () => {
+            let valueAdmin = document.getElementById("isAdmin").value;
+            window.location.href(`/crearUser?admin=${valueAdmin}`);
+        })
+        window.addEventListener('pageshow', (event) => {
+        if (event.persisted) {
+            window.location.reload(); // Recarga la página al volver a ella
+            }
+        }); 
+    </script>
+</body>
+</html>

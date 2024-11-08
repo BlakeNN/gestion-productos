@@ -1,0 +1,133 @@
+header {
+    display: flex;
+    justify-content: space-between;
+}
+.about {
+    width: 80%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.about > * {
+    margin: 0 0 0 1rem;
+}
+.verCats {
+    width: 20%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 1rem 0 0;
+}
+.verCats button {
+    color: var(--gris-claro);
+    font-weight: bolder;
+    background-color: var(--azul-second);
+    border: 1px solid var(--gris-claro); 
+    padding: 0.5rem 1rem;
+    margin: 0 .5rem 0 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.verCats button:hover {
+    background-color: #0087e0;
+}
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.txt {
+    text-align: center;
+    align-self: center;
+    margin: .5rem 0;
+}
+
+.btns {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.col {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.col button {
+    width: 15rem;
+    height: 5rem;
+    margin: .5rem .5rem;
+    color: var(--gris-claro);
+    background-color: var(--azul-second);
+    border: 1px solid #000; 
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: 16px;
+}
+
+.tabla {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+
+.cats {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+    background-color: var(--gris-claro);
+}
+
+.cats th, .cats td {
+    padding: 0.75rem;
+    border: 1px solid #000; 
+    text-align: center;
+    color: var(--gris-oscuro); 
+}
+
+.cats th {
+    background-color: var(--gris-oscuro);
+    color: var(--gris-claro);
+    text-transform: uppercase;
+}
+
+.cats button {
+    color: var(--gris-claro);
+    font-weight: bolder;
+    background-color: var(--azul-second);
+    border: 1px solid #000; 
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.hidden {
+    display: none;
+}
+.cats button:hover {
+    background-color: #0087e0;
+}
+button:hover {
+    background-color: var(--azul-hover);
+}
+@media (min-width: 500px) {
+    .hidden {
+        display: block;
+    }
+}
+@media (max-width: 768px) {
+    .cats {
+        min-width: 100%;
+        font-size: 0.9rem;
+    }
+    .col button {
+        width: 100%;
+        max-width: 8rem;
+    }
+}

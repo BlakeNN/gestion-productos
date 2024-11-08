@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuario</title>
+    <link rel="stylesheet" href="/css/styles.css" type="text/css">
+    <link rel="stylesheet" href="/css/user.css" type="text/css">
+</head>
+<body>
+    <header>
+        <section class="about">
+            <section class="logo">
+                <h2>LOGO</h2>
+            </section>
+            <section class="name hidden">
+                <h1>NOMBRE AQUI</h1>
+            </section>
+        </section>
+        <section class="verCats">
+            <button id="verCats">Ver Categorias</button>
+        </section>
+    </header>
+    <main>
+        <h1 class="txt">Bienvenido</h1>
+        <section class="interfaz">
+            <div class="row">
+                <h3>Ingresa el Codigo del Producto a Buscar</h3> <br>
+                <form action="/buscProd" method="get">
+                    <input type="search" name="srch" id="srch" class="srch">
+                    <button class="srchBtn" type="submit">
+                        <img src="/imgs/searchIcon.png" alt="#">
+                    </button>
+                </form>
+            </div>
+        </section>
+        <section class="tabla">
+            <table class="productos">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Codigo</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (mostrarData === 1) { %>
+                        <% if (prodData.length > 0) { %>
+                            <% prodData.forEach(prod => { %>
+                                <tr>
+                                    <td><%= prod.prod %></td>
+                                    <td><%= prod.cod %></td>
+                                    <td>$<%= prod.precio %></td>
+                                </tr>
+                            <% }); %>
+                        <% } else { %>
+                            <tr>
+                                <td colspan="3" class="sin-registros">Sin Registros</td>
+                            </tr>
+                        <% } %>
+                    <% } else { %>
+                        <tr>
+                            <td colspan="3" class="sin-registros">Sin Registros</td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </section> 
+    </main>
+    <footer>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+    </footer>
+</body>
+<script>
+        let verCBtn = document.getElementById("verCats");
+        verCBtn.addEventListener('click', () => {
+            window.location.href = `/verCats`;
+        });
+        window.addEventListener('pageshow', (event) => {
+            if (event.persisted) {
+                window.location.reload(); // Recarga la página al volver a ella
+            }
+        }); 
+</script>
+</html>

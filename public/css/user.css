@@ -1,0 +1,240 @@
+header {
+    display: flex;
+    justify-content: space-between;
+}
+.about {
+    width: 80%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.about > * {
+    margin: 0 0 0 1rem;
+}
+.verCats {
+    width: 20%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 1rem 0 0;
+}
+.verCats button {
+    color: var(--gris-claro);
+    font-weight: bolder;
+    background-color: var(--azul-second);
+    border: 1px solid var(--gris-claro); 
+    padding: 0.5rem 1rem;
+    margin: 0 .5rem 0 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.verCats button:hover {
+    background-color: #0087e0;
+}
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.hidden {
+    display: none;
+}
+.txt {
+    text-align: center;
+    align-self: center;
+    margin: .5rem 0;
+}
+.interfaz {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.row {
+    width: 100%;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+}
+.row form {
+    width: 100%;
+    text-align: center;
+    margin: .5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.srch {
+    width: 80%;
+    border: none;
+    border-radius: 15px;
+    height: 2rem;
+    margin: .5rem 1px;
+    color: var(--gris-oscuro);
+    background-color: var(--gris-claro);
+    border: 1px solid #000; 
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: 16px;
+}
+.srchBtn {
+    width: 10%;
+    height: 2rem;
+    border: 1px solid #000; 
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1px;
+}
+.srchBtn img {
+    width: 25px;
+    height: 25px;
+}
+.tabla {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+
+.cats {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+    background-color: var(--gris-claro);
+}
+
+.cats th, .cats td {
+    padding: 0.75rem;
+    border: 1px solid #000; 
+    text-align: center;
+    color: var(--gris-oscuro); 
+}
+
+.cats th {
+    background-color: var(--gris-oscuro);
+    color: var(--gris-claro);
+    text-transform: uppercase;
+}
+
+.cats button {
+    color: var(--gris-claro);
+    font-weight: bolder;
+    background-color: var(--azul-second);
+    border: 1px solid #000; 
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cats button:hover {
+    background-color: #0087e0;
+}
+
+@media (min-width: 500px) {
+    .hidden {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .cats {
+        min-width: 100%;
+        font-size: 0.9rem;
+    }
+    .col button {
+        width: 100%;
+        max-width: 8rem;
+    }
+}
+/* ESTILOS TABLA */
+/* General */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+header {
+    padding: 1rem 0;
+}
+
+.txt {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Tabla */
+.tabla {
+    width: 90%;
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+
+.productos {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    min-width: 600px;
+    background-color: #ffffff;
+}
+
+.productos th, .productos td {
+    padding: 0.75rem;
+    border: 1px solid #000;
+    text-align: center;
+}
+
+.productos th {
+    background-color: var(--gris-oscuro);
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.productos td {
+    color: #333;
+}
+
+.productos .sellBtn {
+    color: #ffffff;
+    background-color: var(--azul-second); 
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.productos .sellBtn:hover {
+    background-color: #0087e0;
+}
+
+.sin-registros {
+    text-align: center;
+    font-weight: bold;
+    color: #999;
+    padding: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .productos {
+        min-width: 100%;
+        font-size: 0.9rem;
+    }
+}
