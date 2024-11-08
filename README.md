@@ -1,4 +1,4 @@
-# Gestión de Productos
+# Gestión de Productos v1.0.0
 
 Sistema de gestión de productos para comercios medianos, desarrollado en Node.js y Express. Este sistema permite a los usuarios consultar productos, códigos y precios, y cuenta con roles de usuario y administrador para el control de accesos.
 
