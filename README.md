@@ -11,7 +11,6 @@ Sistema de gestión de productos para comercios medianos, desarrollado en Node.j
 - [Ejecutar la Aplicación](#ejecutar-la-aplicación)
 - [Uso](#uso)
 - [Estructura de Rutas](#estructura-de-rutas)
-- [Contribución](#contribución)
 - [Licencia](#licencia)
 
 ## Características
@@ -82,13 +81,5 @@ La aplicación estará disponible en http://localhost:3000.
 | `/verProds`   | GET    | Muestra los productos de una categoría específica         |
 | ...           | ...    | ...                                                       |
 
-## Contribución
-Si deseas contribuir a este proyecto, por favor sigue estos pasos:
-1. Haz un fork del repositorio.
-2. Crea una nueva rama (`git checkout -b feature-nueva-funcionalidad`).
-3. Realiza tus cambios y haz commit (`git commit -m 'Añadir nueva funcionalidad'`).
-4. Haz push a la rama (`git push origin feature-nueva-funcionalidad`).
-5. Abre un Pull Request.
-
 ## Licencia
-Este proyecto está bajo la Licencia ISC. Puedes consultar el archivo `LICENSE` para más detalles.
+Este proyecto está bajo la Licencia MIT. Puedes consultar el archivo `LICENSE` para más detalles.
