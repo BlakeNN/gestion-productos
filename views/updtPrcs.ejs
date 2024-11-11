@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="/css/styles.css" type="text/css">
+    <link rel="stylesheet" href="/css/verProds.css" type="text/css">
+</head>
+<body>
+    <header>
+        <section class="about">
+            <section class="logo">
+                <h2>LOGO</h2>
+            </section>
+            <section class="name hidden">
+                <h1>NOMBRE AQUI</h1>
+            </section>
+        </section>
+        <section class="addProd">
+                <button id="addProd">Añadir Producto</button>
+                <button id="home">Inicio</button>
+        </section>
+    </header>
+    <main>
+        <section class="tabla">
+            <h3 class="txt" style="text-transform: uppercase;">Inventario de Productos</h3>
+            <% if(admin === 1) { %>
+                <div class="aumento-form">
+                    <label for="aumento">Porcentaje de Aumento:</label> <br>
+                    <input type="number" id="aumento" required>
+                    <button id="btnAumento">Aplicar</button>
+                </div>
+            <% } %>
+            <table class="cats">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Código</th>
+                        <th>Precio</th>
+                        <% if(admin === 1) { %>
+                            <th>Acciones</th>
+                        <% } %>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (prods.length > 0) { %>
+                        <% prods.forEach(prod => { %>
+                            <tr>
+                                <td data-label="Producto"><%= prod.prod %></td>
+                                <td data-label="Código"><%= prod.cod %></td>
+                                <td data-label="Precio">$<%= prod.precio %></td>
+                                <% if(admin === 1) { %>
+                                    <td data-label="Actualizar">
+                                        <input type="checkbox" name="prodSel" value="<%= prod.cod %>">
+                                    </td>
+                                <% } %>
+                            </tr>
+                        <% }); %>
+                    <% } else { %>
+                        <tr>
+                            <% if(admin === 1) { %>
+                                <td colspan="4" class="sin-registros">Sin Registros</td>
+                            <% } else { %>
+                                <td colspan="3" class="sin-registros">Sin Registros</td>
+                            <% } %>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </section>      
+    </main>
+    <footer>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+    </footer>
+    <script>
+        document.getElementById('btnAumento').addEventListener('click', () => {
+            const productos = Array.from(document.querySelectorAll('input[name="prodSel"]:checked'))
+                .map(input => input.value);
+            const aumento = document.getElementById("aumento").value;
+
+            fetch('/updated', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ productos, aumento })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Precios actualizados correctamente");
+                    } else {
+                        alert("Hubo un Error\nRecuerde seleccionar almenos 1 producto");
+                    }
+                    window.location.reload();
+                })
+                .catch(err => console.error('Error:', err));
+        });
+        let addBtn = document.getElementById("addProd");
+        addBtn.addEventListener('click', () => {
+            const param = '<%= cat %>';
+            window.location.href = `/addProd?cat=${param}`;
+        });
+        let homeBtn = document.getElementById("home");
+        homeBtn.addEventListener('click', () => {
+            const rol = '<%= admin %>';
+            if (rol === '1') {
+                window.location.href = `/admin`;
+            } else if (rol === '0') {
+                window.location.href = `/user`;
+            } else {
+                alert("No")
+            }
+        });
+        window.addEventListener('pageshow', (event) => {
+            if (event.persisted) {
+                window.location.reload(); // Recarga la página al volver a ella
+            }
+        }); 
+    </script>
+</body>
+</html>

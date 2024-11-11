@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadir Empleado</title>
+    <link rel="stylesheet" href="/css/styles.css" type="text/css">
+    <link rel="stylesheet" href="/css/addUser.css" type="text/css">
+</head>
+<body>
+    <header>
+        <section class="logo">
+            <h2>LOGO</h2>
+        </section>
+        <section class="name">
+            <h1>NOMBRE AQUI</h1>
+        </section>
+    </header>
+    <main>
+        <form action="/prodAdded?cat=<%= cat%>" method="post" id="form">
+            <h3 class="tit">Ingrese los Datos del Nuevo Producto</h3>
+            <label for="prod">Nombre:</label> <br>
+            <input type="text" name="prod" id="prod"> <br>
+            <label for="cod">Codigo:</label> <br>
+            <input type="text" id="cod" name="cod" required>  
+            <label for="precio">Precio:</label> <br>
+            <input type="number" id="precio" name="precio" step="0.01" required min="0">  
+            <input type="submit" value="Crear" class="sbmt">
+        </form>
+    </main>
+    <footer>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+    </footer>
+    <script>
+        window.addEventListener('pageshow', (event) => {
+        if (event.persisted) {
+            window.location.reload(); // Recarga la página al volver a ella
+            }
+        }); 
+    </script>
+</body>
+</html>

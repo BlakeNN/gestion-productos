@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="/css/styles.css" type="text/css">
+    <link rel="stylesheet" href="/css/admin.css" type="text/css">
+</head>
+<body>
+    <header>
+        <section class="about">
+            <section class="logo">
+                <h2>LOGO</h2>
+            </section>
+            <section class="name hidden">
+                <h1>NOMBRE AQUI</h1>
+            </section>
+        </section>
+    </header>
+    <main>
+        <h1 class="txt">Bienvenido</h1>
+        <section class="interfaz">
+            <section class="btns">
+                <div class="col">
+                    <button id="addUser">Registrar Usuario</button>
+                    <button id="delUser">Eliminar Usuario</button>
+                </div>
+                <div class="col">
+                    <button id="addCat">Crear Categoria</button>
+                    <button id="delCat">Borrar Categoria</button>
+                </div>
+            </section>
+            <section class="tabla">
+                <h3 class="txt" style="text-transform: uppercase;">Categorias de Productos Creadas</h3>
+                <table class="cats">
+                    <thead>
+                        <tr>
+                            <th>Categoria</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if(cats.length > 0){ %>
+                            <% cats.forEach(cat => { %>
+                                <tr>
+                                    <td><%= cat.cat%></td>
+                                    <td>
+                                        <button value="<%= cat.idCat%>" class="verBtn">Ver</button>
+                                        <button value="<%= cat.idCat%>" class="prcBtn">Cambiar Precios</button>
+                                    </td>
+                                </tr>
+                            <% }); %>
+                        <% } else { %>
+                            <p>Sin Registros</p>
+                        <% } %>
+                    </tbody>
+                </table>
+            </section>            
+        </section>
+    </main>
+    <footer>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+    </footer>
+</body>
+<script>
+    let addUser = document.getElementById("addUser").addEventListener('click', () => { window.location.href = '/addUser' });
+    let delUser = document.getElementById("delUser").addEventListener('click', () => { window.location.href = '/delUser' });
+    let addCat = document.getElementById("addCat").addEventListener('click', () => { window.location.href = '/addCat' });
+    let delcat = document.getElementById("delCat").addEventListener('click', () => { window.location.href = '/delCat' });
+    let verBtn = document.getElementsByClassName("verBtn");
+    for (let i = 0; i < verBtn.length; i++) {
+        verBtn[i].addEventListener('click', () => {
+            window.location.href = `/verProds?cat=${verBtn[i].value}`;
+        });
+    }
+    let updtPrcs = document.getElementsByClassName("prcBtn");
+    for (let i = 0; i < updtPrcs.length; i++) {
+        updtPrcs[i].addEventListener('click', () => {
+            window.location.href = `/updtPrcs?cat=${updtPrcs[i].value}`;
+        });
+    }
+    window.addEventListener('pageshow', (event) => {
+        if (event.persisted) {
+            window.location.reload(); // Recarga la página al volver a ella
+        }
+    });
+</script>
+</html>
